@@ -1,34 +1,9 @@
-server:
-  port: 8081
-
 spring:
   application:
     name: user-service
-
   cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        enabled: true
-
-  datasource:
-    url: jdbc:postgresql://localhost:5432/astralx_userdb
-    username: bankuser
-    password: bankpass
-
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: always
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+  config:
+    import: "configserver:"
