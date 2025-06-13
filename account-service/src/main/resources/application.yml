@@ -1,19 +1,12 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
-    name: user-service
-
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        enabled: true
+    name: account-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/astralx_userdb
+    url: jdbc:postgresql://localhost:5432/astralx_accountdb
     username: bankuser
     password: bankpass
 
@@ -23,6 +16,12 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        enabled: true
 
 management:
   endpoints:
